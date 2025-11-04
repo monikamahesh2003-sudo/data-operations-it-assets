@@ -15,10 +15,10 @@ es = Elasticsearch(
 )
 
 if not es.ping():
-	print("❌ Connection failed! Please check endpoint or API key.")
+	print(" Connection failed! Please check endpoint or API key.")
 	exit()
 else:
-	print("✅ Connected to Elasticsearch!")
+	print(" Connected to Elasticsearch!")
 
 # === READ CSV ===
 df = pd.read_csv(CSV_PATH)
@@ -37,4 +37,4 @@ print(f"Uploading {len(actions)} documents to index '{INDEX_NAME}'...")
 
 # === BULK UPLOAD ===
 success, failed = helpers.bulk(es, actions, stats_only=True)
-print(f"✅ Uploaded: {success}, Failed: {failed}")
+print(f" Uploaded: {success}, Failed: {failed}")
